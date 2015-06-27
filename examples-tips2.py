@@ -1,4 +1,4 @@
-##############
+#################
 # Example of missing "global"
 
 n1 = 0

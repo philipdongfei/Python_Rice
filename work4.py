@@ -70,7 +70,7 @@ def draw(canvas):
     ball_pos[1] += ball_vel[1]
    
     # draw ball
-    canvas.draw_circle(ball_pos, BALL_RADIUS, 2, "Red", "White")
+    canvas.draw_circle(ball_pos, BALL_RADIUS, 2, "White", "White")
     # update paddle's vertical position, keep paddle on the screen
     
     paddle1_pos[0] += paddle1_vel[0]
@@ -83,10 +83,12 @@ def draw(canvas):
     # draw paddles
     canvas.draw_line((paddle1_pos[0],paddle1_pos[1] - HALF_PAD_HEIGHT), (paddle1_pos[0] - PAD_WIDTH,paddle1_pos[1]- HALF_PAD_HEIGHT), 2, 'White')
     canvas.draw_line((paddle1_pos[0],paddle1_pos[1] + HALF_PAD_HEIGHT), (paddle1_pos[0] - PAD_WIDTH,paddle1_pos[1]+ HALF_PAD_HEIGHT), 2, 'White')
+    canvas.draw_line((paddle1_pos[0] - PAD_WIDTH,paddle1_pos[1]- HALF_PAD_HEIGHT), (paddle1_pos[0] - PAD_WIDTH,paddle1_pos[1]+ HALF_PAD_HEIGHT), PAD_WIDTH * 2, 'White');
+                 
     canvas.draw_line((paddle2_pos[0],paddle2_pos[1] - HALF_PAD_HEIGHT), (paddle2_pos[0] + PAD_WIDTH,paddle2_pos[1]- HALF_PAD_HEIGHT), 2, 'White')
     canvas.draw_line((paddle2_pos[0],paddle2_pos[1] + HALF_PAD_HEIGHT), (paddle2_pos[0] + PAD_WIDTH,paddle2_pos[1]+ HALF_PAD_HEIGHT), 2, 'White')
- 
-    
+    canvas.draw_line((paddle2_pos[0] + PAD_WIDTH,paddle2_pos[1]- HALF_PAD_HEIGHT), (paddle2_pos[0] + PAD_WIDTH,paddle2_pos[1]+ HALF_PAD_HEIGHT), PAD_WIDTH * 2, 'White');
+       
     
     # determine whether paddle and ball collide
     if ball_pos[0] <= (BALL_RADIUS + PAD_WIDTH):

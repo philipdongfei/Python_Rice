@@ -50,13 +50,13 @@ class Card:
     def draw(self, canvas, pos):
         card_loc = (CARD_CENTER[0] + CARD_SIZE[0] * RANKS.index(self.rank), 
                     CARD_CENTER[1] + CARD_SIZE[1] * SUITS.index(self.suit))
-        if pos[0] == Dealer_Pos[0] and pos[1] == Dealer_Pos[1]:
-            if in_play:
-                canvas.draw_image(card_back, [CARD_BACK_SIZE[0] + CARD_BACK_CENTER[0], CARD_BACK_CENTER[1]], CARD_BACK_SIZE, [pos[0] + CARD_BACK_CENTER[0], pos[1] + CARD_BACK_CENTER[1]], CARD_BACK_SIZE)
-            else:
-                canvas.draw_image(card_images, card_loc, CARD_SIZE, [pos[0] + CARD_CENTER[0], pos[1] + CARD_CENTER[1]], CARD_SIZE)
-        else:    
-            canvas.draw_image(card_images, card_loc, CARD_SIZE, [pos[0] + CARD_CENTER[0], pos[1] + CARD_CENTER[1]], CARD_SIZE)
+        # if pos[0] == Dealer_Pos[0] and pos[1] == Dealer_Pos[1]:
+            # if in_play:
+                # canvas.draw_image(card_back, [CARD_BACK_SIZE[0] + CARD_BACK_CENTER[0], CARD_BACK_CENTER[1]], CARD_BACK_SIZE, [pos[0] + CARD_BACK_CENTER[0], pos[1] + CARD_BACK_CENTER[1]], CARD_BACK_SIZE)
+            # else:
+                # canvas.draw_image(card_images, card_loc, CARD_SIZE, [pos[0] + CARD_CENTER[0], pos[1] + CARD_CENTER[1]], CARD_SIZE)
+        # else:    
+        canvas.draw_image(card_images, card_loc, CARD_SIZE, [pos[0] + CARD_CENTER[0], pos[1] + CARD_CENTER[1]], CARD_SIZE)
         
 # define hand class
 class Hand:
@@ -219,6 +219,9 @@ def draw(canvas):
     canvas.draw_text("Dealer", [Dealer_Pos[0], Dealer_Pos[1] - 24], 24, "Black")
     canvas.draw_text(outcome, [Dealer_Pos[0] + 200, Dealer_Pos[1] - 24], 24, "Black")
     canvas.draw_text("Player", [Player_Pos[0], Player_Pos[1] - 24], 24, "Black")
+    if in_play:
+        canvas.draw_image(card_back, [CARD_BACK_SIZE[0] + CARD_BACK_CENTER[0], CARD_BACK_CENTER[1]], CARD_BACK_SIZE, [Dealer_Pos[0] + CARD_BACK_CENTER[0], Dealer_Pos[1] + CARD_BACK_CENTER[1]], CARD_BACK_SIZE)
+
     
     
 

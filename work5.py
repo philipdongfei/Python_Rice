@@ -69,7 +69,13 @@ def draw(canvas):
     global number_list, exposed, each_x
     each_y = 100 / 3 * 2    
     for idx in range(len(number_list)):
-        canvas.draw_line((idx * each_x + each_x / 2, 0), (idx * each_x + each_x / 2, 100), 800 / 16, 'Green')
+         canvas.draw_line((idx * each_x + each_x / 2, 0), (idx * each_x + each_x / 2, 100), 800 / 16, 'Green')
+		#use a fun of 
+		#canvas.draw_polyline ([(idx*CARD_WIDTH, 0),
+                                  # ((idx+1)*CARD_WIDTH, 0),
+                                  # ((idx+1)*CARD_WIDTH, DECK_HEIGHT),
+                                  # (idx*CARD_WIDTH, DECK_HEIGHT)],
+                                  # 1, "Red", "Green")
         canvas.draw_line(((idx + 1) * each_x, 0), ((idx + 1) * each_x, 100), 2, 'Black')
         if exposed[idx]:
             canvas.draw_text(str(number_list[idx]),((idx + 1) * each_x - each_x / 3 * 2, each_y), 36, 'White')

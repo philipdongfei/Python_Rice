@@ -62,15 +62,12 @@ def input_guess(guess):
     elif secret_number < guess_number:
         print "Lower"
     n = n - 1
-    print '\n'
-    
+    print '\n'  
         
     
     
 # create frame
 frame = simplegui.create_frame("Guess the number",200,200)
-
-
 
 # register event handlers for control elements and start frame
 frame.add_button("Range: 0 - 100", range100,150)
